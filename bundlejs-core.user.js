@@ -7,12 +7,12 @@
 // @match        *://*.moomoo.io/*
 // @grant        none
 // @run-at       document-start
+// @downloadURL  https://github.com/ykspub/bundlehook-updates/raw/main/bundlejs-core.user.js
+// @updateURL    https://github.com/ykspub/bundlehook-updates/raw/main/bundlejs-core.user.js
 // ==/UserScript==
 
-//console.log("ok");
 var kd = new MutationObserver(function(e) {
     if (document.body) {
-        //console.log("Nope, that's not the issue");
         document.body.querySelectorAll('script').forEach(bundle => {
             if (bundle.src.includes('bundle')) {
                 bundle.remove();
