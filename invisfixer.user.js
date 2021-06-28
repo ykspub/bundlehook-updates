@@ -7,6 +7,8 @@
 // @match        *://*.moomoo.io/*
 // @grant        none
 // @run-at       document-start
+// @downloadURL  https://github.com/ykspub/bundlehook-updates/raw/main/invisfixer.user.js
+// @updateURL    https://github.com/ykspub/bundlehook-updates/raw/main/invisfixer.user.js
 // ==/UserScript==
 
 if (!window.bundleHookModules) {
