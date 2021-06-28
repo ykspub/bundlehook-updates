@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bundlejs-Core
 // @namespace    http://tampermonkey.net/
-// @version      0.4.21
+// @version      0.4.20
 // @description  Core module to hook bundle.js
 // @author       The Big Daddy
 // @match        *://*.moomoo.io/*
@@ -48,5 +48,3 @@ kd.observe(c, {
     childList: true,
     subtree: true,
 });
-
-alert("DID IT UPDATE?");
