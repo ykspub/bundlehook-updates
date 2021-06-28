@@ -19,3 +19,8 @@ window.bundleHookModules.push(function(bundlejs) {
     let fixerCode = 'if(typeof e.dir !== "undefined") {if (Math.abs(e.dir) > 50) {e.dir = 0;}}';
     return bundlejs.replace('function ri(e,t){', 'function ri(e,t){' + fixerCode);
 });
+
+if (localStorage.getItem("INVISFIXERINSTALLED") != "true") {
+    alert("Invis fixer module installed!");
+    localStorage.setItem("INVISFIXERINSTALLED", "true");
+}
