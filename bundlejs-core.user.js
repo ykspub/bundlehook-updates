@@ -48,3 +48,8 @@ kd.observe(c, {
     childList: true,
     subtree: true,
 });
+
+if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
+    alert("Core module installed!");
+    localStorage.setItem("COREMODULEINSTALLED", "true");
+}
