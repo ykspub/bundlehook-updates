@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bundlejs-Core
 // @namespace    http://tampermonkey.net/
-// @version      0.4.20
+// @version      0.4.21
 // @description  Core module to hook bundle.js
 // @author       The Big Daddy
 // @match        *://*.moomoo.io/*
@@ -31,10 +31,6 @@ var kd = new MutationObserver(function(e) {
                     kd.disconnect();
                 }
             }
-            else if (bundle.src.includes("captchaCallback")) {
-                window.recaptchaCallbackURL = bundle.src;
-                bundle.remove();
-            }
             else if ((bundle.src.length != 0) && (!bundle.src.includes("jquery")) && (!bundle.src.includes("captcha"))) {
                 bundle.remove();
             }
@@ -52,4 +48,9 @@ kd.observe(c, {
 if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
     alert("Core module installed!");
     localStorage.setItem("COREMODULEINSTALLED", "true");
+}
+
+if (localStorage.getItem("UPDATE421") != "true") {
+    alert("Updated to 4.21. All this does is fix a typo that has no impact on functionality, but bothers me anyways");
+    localStorage.setItem("UPDATE421", "true");
 }
