@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bundlejs-Core
 // @namespace    http://tampermonkey.net/
-// @version      0.4.21
+// @version      0.5.21
 // @description  Core module to hook bundle.js
 // @author       The Big Daddy
 // @match        *://*.moomoo.io/*
@@ -32,7 +32,7 @@ var kd = new MutationObserver(function(e) {
                 }
             }
             else if ((bundle.src.length != 0) && (!bundle.src.includes("jquery")) && (!bundle.src.includes("captcha"))) {
-                bundle.remove();
+                //bundle.remove();
             }
         });
     }
@@ -50,7 +50,7 @@ if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
     localStorage.setItem("COREMODULEINSTALLED", "true");
 }
 
-if (localStorage.getItem("UPDATE421") != "true") {
-    alert("Updated to 4.21. All this does is fix a typo that has no impact on functionality, but bothers me anyways");
-    localStorage.setItem("UPDATE421", "true");
+if (localStorage.getItem("UPDATE521") != "true") {
+    alert("Updated to 5.21. Fixes issue of core not loading on new moomoo");
+    localStorage.setItem("UPDATE521", "true");
 }
