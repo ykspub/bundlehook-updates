@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bundlejs-Core
 // @namespace    http://tampermonkey.net/
-// @version      0.6.00
+// @version      0.7.00
 // @description  Core module to hook bundle.js
 // @author       The Big Daddy
 // @match        *://*.moomoo.io/*
@@ -40,11 +40,11 @@ var kd = new MutationObserver(function(e) {
     }
 });
 
-var c = document.documentElement || document.body;
-
-kd.observe(c, {
-    childList: true,
-    subtree: true,
+window.addEventListener('DOMContentLoaded', function() {
+    kd.observe(document.documentElement || document.body, {
+        childList: true,
+        subtree: true,
+    });
 });
 
 if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
@@ -52,7 +52,7 @@ if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
     localStorage.setItem("COREMODULEINSTALLED", "true");
 }
 
-if (localStorage.getItem("UPDATE600") != "true") {
-    alert("Updated to 6.00. Trialling fix for issue where script sometimes doesn't load (and requires tons of reloads to make it work). Also, fixed bug where moomoo won't load if no modules are loaded");
-    localStorage.setItem("UPDATE600", "true");
+if (localStorage.getItem("UPDATE700") != "true") {
+    alert("Updated to 7.00. Applying fix for issue where script sometimes doesn't load (and requires tons of reloads to make it work). Also, fixed bug where moomoo won't load if no modules are loaded");
+    localStorage.setItem("UPDATE700", "true");
 }
