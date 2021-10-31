@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bundlejs-Core
 // @namespace    http://tampermonkey.net/
-// @version      0.7.0.0
+// @version      0.7.0
 // @description  Core module to hook bundle.js
 // @author       The Big Daddy
 // @match        *://*.moomoo.io/*
@@ -53,6 +53,6 @@ if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
 }
 
 if (localStorage.getItem("UPDATE700") != "true") {
-    alert("Updated to 7.0.0. Applying fix for issue where script sometimes doesn't load (and requires tons of reloads to make it work). Also, fixed bug where moomoo won't load if no modules are loaded");
+    alert("Updated to 0.7.0. Applying fix for issue where script sometimes doesn't load (and requires tons of reloads to make it work). Also, fixed bug where moomoo won't load if no modules are loaded");
     localStorage.setItem("UPDATE700", "true");
 }
