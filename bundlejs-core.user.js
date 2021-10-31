@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bundlejs-Core
 // @namespace    http://tampermonkey.net/
-// @version      0.5.21
+// @version      0.5.31
 // @description  Core module to hook bundle.js
 // @author       The Big Daddy
 // @match        *://*.moomoo.io/*
@@ -38,7 +38,7 @@ var kd = new MutationObserver(function(e) {
     }
 });
 
-var c = document.documentElement;
+var c = document.documentElement || document.body;
 
 kd.observe(c, {
     childList: true,
@@ -50,7 +50,7 @@ if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
     localStorage.setItem("COREMODULEINSTALLED", "true");
 }
 
-if (localStorage.getItem("UPDATE521") != "true") {
-    alert("Updated to 5.21. Fixes issue of core not loading on new moomoo");
-    localStorage.setItem("UPDATE521", "true");
+if (localStorage.getItem("UPDATE531") != "true") {
+    alert("Updated to 5.31. Trialling fix for issue where script sometimes doesn't load (and requires tons of reloads to make it work)");
+    localStorage.setItem("UPDATE531", "true");
 }
