@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bundlejs-Core
 // @namespace    http://tampermonkey.net/
-// @version      0.5.31
+// @version      0.5.41
 // @description  Core module to hook bundle.js
 // @author       The Big Daddy
 // @match        *://*.moomoo.io/*
@@ -21,8 +21,10 @@ var kd = new MutationObserver(function(e) {
                 urmumgae.send();
                 if ((urmumgae.status == 200) && (urmumgae.readyState == 4)) {
                     let bundlejs = urmumgae.responseText;
-                    for (let j = 0; j < window.bundleHookModules.length; j++) {
-                        bundlejs = window.bundleHookModules[j](bundlejs);
+                    if (window.bundleHookModules) {
+                        for (let j = 0; j < window.bundleHookModules.length; j++) {
+                            bundlejs = window.bundleHookModules[j](bundlejs);
+                        }
                     }
                     var newBundle = document.createElement("script");
                     newBundle.text = bundlejs;
@@ -50,7 +52,7 @@ if (localStorage.getItem("COREMODULEINSTALLED") != "true") {
     localStorage.setItem("COREMODULEINSTALLED", "true");
 }
 
-if (localStorage.getItem("UPDATE531") != "true") {
-    alert("Updated to 5.31. Trialling fix for issue where script sometimes doesn't load (and requires tons of reloads to make it work)");
-    localStorage.setItem("UPDATE531", "true");
+if (localStorage.getItem("UPDATE541") != "true") {
+    alert("Updated to 5.41. Trialling fix for issue where script sometimes doesn't load (and requires tons of reloads to make it work). Also, fixed bug where moomoo won't load if no modules are loaded");
+    localStorage.setItem("UPDATE541", "true");
 }
